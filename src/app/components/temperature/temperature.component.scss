@@ -1,0 +1,16 @@
+* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 0;
+  }
+  .clime {
+    flex-direction: row;
+    font-size: 50px;
+    h1 {
+      margin: 0;
+    }
+  }
+}

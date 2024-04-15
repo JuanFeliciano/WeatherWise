@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  img {
+    height: 40px;
+  }
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  hr {
+    height: 180px;
+    margin: 3px;
+    opacity: 0.4;
+  }
+}

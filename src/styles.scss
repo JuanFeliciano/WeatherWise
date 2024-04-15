@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap");
+body {
+  background: linear-gradient(
+    to right top,
+    #3675d4,
+    #2c63b9,
+    #22519f,
+    #174086,
+    #09306d
+  );
+  color: white;
+}
 * {
   font-family: "Platypi", serif;
-  background-color: rgb(187, 187, 187);
 }
