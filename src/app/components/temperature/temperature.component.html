@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container" *ngIf="weatherService.weatherData">
   <div class="locality">
-    <h3>São Paulo</h3>
+    <h3>{{ weatherService.weatherData.results.city_name }}</h3>
     <h4>
       {{ getWeekString(date) }}, {{ getMonthString(date) }} {{ dayMonth }},
       {{ year }}
     </h4>
   </div>
-  <h2>Clear</h2>
+  <h2>{{ weatherService.weatherData.results.description }}</h2>
   <div class="clime">
-    <h1>19°</h1>
+    <h1>{{ weatherService.weatherData.results.temp }}°</h1>
   </div>
 </div>

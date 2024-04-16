@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.0",
-    "@angular/common": "^15.2.0",
+    "@angular/common": "^15.2.10",
     "@angular/compiler": "^15.2.0",
     "@angular/core": "^15.2.0",
     "@angular/forms": "^15.2.0",

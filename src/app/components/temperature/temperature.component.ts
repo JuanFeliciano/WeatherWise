@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { WeatherService } from 'src/app/services/weather-service';
 
 @Component({
   selector: 'app-temperature',
   templateUrl: './temperature.component.html',
   styleUrls: ['./temperature.component.scss'],
+  providers: [],
 })
-export class TemperatureComponent {
+export class TemperatureComponent implements OnInit {
+  constructor(public weatherService: WeatherService) {}
+
+  ngOnInit() {
+    this.weatherService.fetchWeatherData();
+  }
+
   date: Date = new Date();
   getMonthString(date: Date) {
     const monthsList = [
