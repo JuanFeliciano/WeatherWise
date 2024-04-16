@@ -12,7 +12,7 @@ export class WeatherService {
   fetchWeatherData() {
     return this.http
       .get<any>(
-        'https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1'
+        'https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&woeid=455876'
       )
       .subscribe((data) => {
         this.weatherData = data;
