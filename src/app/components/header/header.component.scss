@@ -1,6 +1,11 @@
-header {
-  img {
+:host {
+  header {
+    display: flex;
+    justify-content: space-between;
     height: 50px;
-    width: 100px;
+    padding: 0 20px;
+    img {
+      height: 50px;
+    }
   }
 }

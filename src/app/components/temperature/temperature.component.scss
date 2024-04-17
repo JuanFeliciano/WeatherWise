@@ -3,18 +3,35 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  h3 {
-    font-size: 40px;
-  }
-
-  h2 {
-    margin-bottom: 0;
-  }
+}
+.container {
   .clime {
     flex-direction: row;
     font-size: 50px;
     h1 {
       margin: 0;
+      color: var(--text-clime);
     }
+  }
+}
+
+.locality {
+  .ls-custom-select {
+    .select {
+      color: var(--text-body);
+      background: transparent;
+      border: 0;
+      appearance: none;
+      font-size: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      option {
+        font-size: 20px;
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: 0;
   }
 }

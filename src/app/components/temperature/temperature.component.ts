@@ -8,18 +8,19 @@ import { WeatherService } from 'src/app/services/weather-service';
   styleUrls: ['./temperature.component.scss'],
 })
 export class TemperatureComponent implements OnInit {
-  selectCity: string = '455876';
+  selectCity: string = '455827';
   cities: ICity[] = [
-    { name: 'Jaraguá do Sul', woeid: '456283' },
-    { name: 'São Paulo', woeid: '455827' },
-    { name: 'Joinville', woeid: '455873' },
-    { name: 'Florianópolis', woeid: '90200648' },
-    { name: 'Itajai', woeid: '455870' },
-    { name: 'Pomerode', woeid: '460532' },
-    { name: 'São Francisco do Sul', woeid: '456516' },
-    { name: 'Brasília', woeid: '455819' },
-    { name: 'Salvador', woeid: '455826' },
-    { name: 'Rio de Janeiro', woeid: '455825' },
+    { woeid: '455876', name: 'Jundiaí' },
+    { woeid: '456283', name: 'Jaraguá do Sul' },
+    { woeid: '455827', name: 'São Paulo' },
+    { woeid: '455873', name: 'Joinville' },
+    { woeid: '90200648', name: 'Florianópolis' },
+    { woeid: '455870', name: 'Itajai' },
+    { woeid: '460532', name: 'Pomerode' },
+    { woeid: '456516', name: 'São Francisco do Sul' },
+    { woeid: '455819', name: 'Brasília' },
+    { woeid: '455826', name: 'Salvador' },
+    { woeid: '455825', name: 'Rio de Janeiro' },
   ];
 
   constructor(public weatherService: WeatherService) {}
