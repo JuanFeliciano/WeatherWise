@@ -6,16 +6,22 @@ import { Injectable } from '@angular/core';
 })
 export class WeatherService {
   weatherData: any;
+  woeid: string = '455876';
 
   constructor(private http: HttpClient) {}
 
   fetchWeatherData() {
     return this.http
       .get<any>(
-        'https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&woeid=455876'
+        `https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&woeid=${this.woeid}`
       )
       .subscribe((data) => {
         this.weatherData = data;
       });
+  }
+
+  updateCity(woeid: string) {
+    this.woeid = woeid;
+    this.fetchWeatherData();
   }
 }
