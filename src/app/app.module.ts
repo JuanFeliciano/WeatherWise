@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TemperatureComponent } from './components/temperature/temperature.component';
 import { ClimeComponent } from './components/clime/clime.component';
 import { WeatherService } from './services/weather-service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { WeatherService } from './services/weather-service';
     AppRoutingModule,
     HttpClientModule,
     HttpClientJsonpModule,
+    FormsModule,
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent],

@@ -1,6 +1,12 @@
 <div class="container" *ngIf="weatherService.weatherData">
   <div class="locality">
-    <h3>{{ weatherService.weatherData.results.city_name }}</h3>
+    <h3>
+      <select [(ngModel)]="selectCity" (change)="changeCity()">
+        <option *ngFor="let city of cities" [value]="city.woeid">
+          {{ city.name }}
+        </option>
+      </select>
+    </h3>
     <h4>
       {{ getWeekString(date) }}, {{ getMonthString(date) }} {{ dayMonth }},
       {{ year }}
