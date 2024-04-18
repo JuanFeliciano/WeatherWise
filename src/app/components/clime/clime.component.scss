@@ -11,6 +11,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    p {
+      font-size: 17px;
+      font-weight: 600;
+    }
   }
   hr {
     height: 180px;

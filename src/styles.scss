@@ -12,16 +12,14 @@
 }
 
 :root {
-  --body: #2c88ff;
-  --text-select: #ffffff;
-  --text-clime: #ffa500;
-  --text-body: #ffffff;
+  --body: #f2f2f2;
+  --text-clime: #ff7f00;
+  --text-body: #333333;
 }
 :root .dark-theme {
-  --body: #0a3d6e;
-  --text-select: #4d8ff2;
-  --text-clime: #ffa500;
-  --text-body: #cccccc;
+  --body: #1f1f1f;
+  --text-clime: #3498db;
+  --text-body: #ffffff;
 }
 body {
   background-color: var(--body);

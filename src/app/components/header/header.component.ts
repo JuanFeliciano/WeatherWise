@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-  public icon: string = 'clear_day';
+export class HeaderComponent implements OnInit {
+  constructor(public localStorage: LocalStorageService) {}
 
-  public toggle() {
-    const theme = document.body.classList.toggle('dark-theme');
-    if (theme) {
-      return (this.icon = 'clear_night');
-    }
-    return (this.icon = 'clear_day');
+  ngOnInit(): void {
+    this.localStorage.toggle();
+    this.localStorage.icon;
   }
 }
