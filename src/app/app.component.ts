@@ -6,7 +6,5 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ProjectMovtech-3';
-
-  darkTheme = document.querySelector('body');
+  title = 'Climate Project';
 }

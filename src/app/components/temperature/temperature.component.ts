@@ -8,7 +8,6 @@ import { WeatherService } from 'src/app/services/weather-service';
   styleUrls: ['./temperature.component.scss'],
 })
 export class TemperatureComponent implements OnInit {
-  selectCity: string = '455827';
   cities: ICity[] = [
     { woeid: '455876', name: 'Jundiaí' },
     { woeid: '456283', name: 'Jaraguá do Sul' },
@@ -26,11 +25,14 @@ export class TemperatureComponent implements OnInit {
   constructor(public weatherService: WeatherService) {}
 
   ngOnInit() {
+    this.weatherService.woeid =
+      localStorage.getItem('selectedCity') || '455827';
     this.weatherService.fetchWeatherData();
   }
 
   changeCity() {
-    this.weatherService.updateCity(this.selectCity);
+    localStorage.setItem('selectedCity', this.weatherService.woeid);
+    this.weatherService.updateCity(this.weatherService.woeid);
   }
 
   date: Date = new Date();
