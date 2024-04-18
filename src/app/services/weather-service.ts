@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class WeatherService {
   weatherData: any;
-  woeid: string = '455876';
+  public woeid: string = '455827';
 
   constructor(private http: HttpClient) {}
 
