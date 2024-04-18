@@ -7,4 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProjectMovtech-3';
+
+  darkTheme = document.querySelector('body');
 }

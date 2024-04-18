@@ -6,7 +6,6 @@
 }
 .container {
   .clime {
-    flex-direction: row;
     font-size: 50px;
     h1 {
       margin: 0;
@@ -17,7 +16,7 @@
 
 .locality {
   .ls-custom-select {
-    .select {
+    select {
       color: var(--text-body);
       background: transparent;
       border: 0;
