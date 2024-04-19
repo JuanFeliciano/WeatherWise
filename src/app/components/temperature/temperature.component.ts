@@ -22,20 +22,21 @@ export class TemperatureComponent implements OnInit {
     { woeid: '455825', name: 'Rio de Janeiro' },
   ];
 
+  date: Date = new Date();
+
   constructor(public weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.weatherService.woeid =
-      localStorage.getItem('selectedCity') || '455827';
+    this.weatherService.city_name =
+      localStorage.getItem('selectedCity') || 'São Paulo';
     this.weatherService.fetchWeatherData();
   }
 
   changeCity() {
-    localStorage.setItem('selectedCity', this.weatherService.woeid);
-    this.weatherService.updateCity(this.weatherService.woeid);
+    localStorage.setItem('selectedCity', this.weatherService.city_name);
+    this.weatherService.updateCity(this.weatherService.city_name);
   }
 
-  date: Date = new Date();
   getMonthString(date: Date) {
     const monthsList = [
       'January',
