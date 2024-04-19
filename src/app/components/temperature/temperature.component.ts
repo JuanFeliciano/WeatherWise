@@ -23,6 +23,8 @@ export class TemperatureComponent implements OnInit {
   ];
 
   date: Date = new Date();
+  dayMonth: number = this.date.getDate();
+  year: number = this.date.getFullYear();
 
   constructor(public weatherService: WeatherService) {}
 
@@ -37,40 +39,13 @@ export class TemperatureComponent implements OnInit {
     this.weatherService.updateCity(this.weatherService.city_name);
   }
 
-  getMonthString(date: Date) {
-    const monthsList = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const months: string = monthsList[date.getMonth()];
-    return months;
+  getMonthString() {
+    return this.date.toLocaleString('default', { month: 'long' }).toUpperCase();
   }
 
-  getWeekString(date: Date) {
-    const weekString = [
-      'Saturday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Sunday',
-    ];
-
-    const weeks: string = weekString[date.getDay()];
-    return weeks;
+  getWeekString() {
+    return this.date
+      .toLocaleString('default', { weekday: 'long' })
+      .toUpperCase();
   }
-
-  dayMonth = this.date.getDate();
-  year = this.date.getFullYear();
 }

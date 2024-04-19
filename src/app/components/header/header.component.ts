@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   public icon: string = 'cloudly_day';
+  public logo: string = 'MovtechLogo';
   private readonly themeKey = 'preferred-theme';
 
   constructor() {
@@ -19,9 +20,11 @@ export class HeaderComponent {
 
     if (isDarkTheme) {
       this.icon = 'cloudly_night';
+      this.logo = 'MovtechLogoWhite';
       localStorage.setItem(this.themeKey, 'dark');
     } else {
       this.icon = 'cloudly_day';
+      this.logo = 'MovtechLogo';
       localStorage.setItem(this.themeKey, 'light');
     }
   }
