@@ -6,14 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class WeatherService {
   weatherData: any;
-  public woeid: string = '455827';
+  public city_name: string = 'São Paulo';
 
   constructor(private http: HttpClient) {}
 
   fetchWeatherData() {
     return this.http
       .get<any>(
-        `https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&woeid=${this.woeid}`
+        `https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&city_name=${this.city_name}`
       )
       .subscribe((data) => {
         this.weatherData = data;
@@ -21,7 +21,7 @@ export class WeatherService {
   }
 
   updateCity(woeid: string) {
-    this.woeid = woeid;
+    this.city_name = woeid;
     this.fetchWeatherData();
   }
 }

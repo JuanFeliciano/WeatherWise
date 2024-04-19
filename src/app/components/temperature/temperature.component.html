@@ -1,8 +1,8 @@
 <div class="container" *ngIf="weatherService.weatherData">
   <div class="locality">
     <div class="ls-custom-select">
-      <select [(ngModel)]="weatherService.woeid" (change)="changeCity()">
-        <option *ngFor="let city of cities" [value]="city.woeid">
+      <select [(ngModel)]="weatherService.city_name" (change)="changeCity()">
+        <option *ngFor="let city of cities" [value]="city.name">
           {{ city.name }}
         </option>
       </select>

@@ -1,102 +1,14 @@
 <div class="container">
-  <div class="main">
-    <p>{{ weatherService.weatherData.results.time }}</p>
-    <img
-      [src]="
-        './assets/' +
-        weatherService.weatherData.results.forecast[0].condition +
-        '.svg'
-      "
-    />
-    <p>
-      {{ weatherService.weatherData.results.forecast[0].max }}° /
-      {{ weatherService.weatherData.results.forecast[0].min }}°
-    </p>
-    <p>
-      💧{{ weatherService.weatherData.results.forecast[0].rain_probability }}%
-    </p>
-  </div>
-
-  <hr />
-
-  <div class="main">
-    <p>{{ weatherService.weatherData.results.forecast[1].date }}</p>
-    <img
-      [src]="
-        './assets/' +
-        weatherService.weatherData.results.forecast[1].condition +
-        '.svg'
-      "
-    />
-
-    <p>
-      {{ weatherService.weatherData.results.forecast[1].max }}° /
-      {{ weatherService.weatherData.results.forecast[1].min }}°
-    </p>
-    <p>
-      💧{{ weatherService.weatherData.results.forecast[1].rain_probability }}%
-    </p>
-  </div>
-
-  <hr />
-
-  <div class="main">
-    <p>{{ weatherService.weatherData.results.forecast[2].date }}</p>
-    <img
-      [src]="
-        './assets/' +
-        weatherService.weatherData.results.forecast[2].condition +
-        '.svg'
-      "
-    />
-
-    <p>
-      {{ weatherService.weatherData.results.forecast[2].max }}° /
-      {{ weatherService.weatherData.results.forecast[2].min }}°
-    </p>
-    <p>
-      💧{{ weatherService.weatherData.results.forecast[2].rain_probability }}%
-    </p>
-  </div>
-
-  <hr />
-
-  <div class="main">
-    <p>{{ weatherService.weatherData.results.forecast[3].date }}</p>
-    <img
-      [src]="
-        './assets/' +
-        weatherService.weatherData.results.forecast[3].condition +
-        '.svg'
-      "
-    />
-
-    <p>
-      {{ weatherService.weatherData.results.forecast[3].max }}° /
-      {{ weatherService.weatherData.results.forecast[3].min }}°
-    </p>
-    <p>
-      💧{{ weatherService.weatherData.results.forecast[3].rain_probability }}%
-    </p>
-  </div>
-
-  <hr />
-
-  <div class="main">
-    <p>{{ weatherService.weatherData.results.forecast[4].date }}</p>
-    <img
-      [src]="
-        './assets/' +
-        weatherService.weatherData.results.forecast[4].condition +
-        '.svg'
-      "
-    />
-    <p>
-      {{ weatherService.weatherData.results.forecast[4].max }}° /
-      {{ weatherService.weatherData.results.forecast[4].min }}°
-    </p>
-    <p>
-      💧{{ weatherService.weatherData.results.forecast[4].rain_probability }}%
-    </p>
+  <div
+    class="main"
+    *ngFor="
+      let atributes of weatherService.weatherData.results.forecast.slice(0, 5);
+      let i = index
+    "
+  >
+    <p>{{ atributes.date }}</p>
+    <img [src]="'./assets/' + atributes.condition + '.svg'" />
+    <p>{{ atributes.max }}° / {{ atributes.min }}°</p>
+    <p>💧{{ atributes.rain_probability }}%</p>
   </div>
 </div>

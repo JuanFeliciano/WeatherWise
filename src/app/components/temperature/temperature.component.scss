@@ -17,8 +17,7 @@
 .locality {
   .ls-custom-select {
     select {
-      align-items: center;
-      text-align: center;
+      align-items: normal;
       color: var(--text-body);
       background: transparent;
       border: 0;
@@ -27,8 +26,8 @@
       font-weight: 700;
       cursor: pointer;
       option {
-        align-items: center;
         text-align: center;
+        align-items: center;
         background-color: var(--back-option);
         font-size: 20px;
       }
