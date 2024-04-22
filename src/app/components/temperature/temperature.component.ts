@@ -36,7 +36,7 @@ export class TemperatureComponent implements OnInit {
 
   changeCity() {
     localStorage.setItem('selectedCity', this.weatherService.city_name);
-    this.weatherService.updateCity(this.weatherService.city_name);
+    this.weatherService.updateCity();
   }
 
   getMonthString() {

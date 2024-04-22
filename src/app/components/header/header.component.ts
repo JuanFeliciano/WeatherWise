@@ -34,6 +34,7 @@ export class HeaderComponent {
     if (theme === 'dark') {
       document.body.classList.add('dark-theme');
       this.icon = 'cloudly_night';
+      this.logo = 'MovtechLogoWhite';
     }
   }
 }
