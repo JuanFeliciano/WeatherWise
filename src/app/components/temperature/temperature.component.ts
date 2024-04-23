@@ -9,17 +9,17 @@ import { WeatherService } from 'src/app/services/weather-service';
 })
 export class TemperatureComponent implements OnInit {
   cities: ICity[] = [
-    { woeid: '455876', name: 'Jundiaí' },
-    { woeid: '456283', name: 'Jaraguá do Sul' },
-    { woeid: '455827', name: 'São Paulo' },
-    { woeid: '455873', name: 'Joinville' },
-    { woeid: '90200648', name: 'Florianópolis' },
-    { woeid: '455870', name: 'Itajai' },
-    { woeid: '460532', name: 'Pomerode' },
-    { woeid: '456516', name: 'São Francisco do Sul' },
-    { woeid: '455819', name: 'Brasília' },
-    { woeid: '455826', name: 'Salvador' },
-    { woeid: '455825', name: 'Rio de Janeiro' },
+    { name: 'Jundiaí' },
+    { name: 'Jaraguá do Sul' },
+    { name: 'São Paulo' },
+    { name: 'Joinville' },
+    { name: 'Itajai' },
+    { name: 'Pomerode' },
+    { name: 'São Francisco do Sul' },
+    { name: 'Brasília' },
+    { name: 'Salvador' },
+    { name: 'Rio de Janeiro' },
+    { name: 'Guaramirim' },
   ];
 
   date: Date = new Date();
@@ -36,7 +36,7 @@ export class TemperatureComponent implements OnInit {
 
   changeCity() {
     localStorage.setItem('selectedCity', this.weatherService.city_name);
-    this.weatherService.updateCity();
+    this.weatherService.fetchWeatherData();
   }
 
   getMonthString() {
