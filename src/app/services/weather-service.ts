@@ -12,16 +12,11 @@ export class WeatherService {
 
   fetchWeatherData() {
     return this.http
-      .get<any>(
+      .get<JSON>(
         `https://api.hgbrasil.com/weather?format=json-cors&key=cabab5a1&city_name=${this.city_name}`
       )
       .subscribe((data) => {
         this.weatherData = data;
       });
-  }
-
-  updateCity(woeid: string) {
-    this.city_name = woeid;
-    this.fetchWeatherData();
   }
 }
