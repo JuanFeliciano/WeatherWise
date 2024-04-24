@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,15 @@ export class HeaderComponent {
   public logo: string = 'MovtechLogo';
   private readonly themeKey: string = 'preferred-theme';
 
-  constructor() {
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private bodyDocument: Document
+  ) {
     this.loadTheme();
   }
 
   public toggle() {
-    const isDarkTheme = document.body.classList.toggle('dark-theme');
+    const isDarkTheme = this.bodyDocument.body.classList.toggle('dark-theme');
 
     if (isDarkTheme) {
       this.icon = 'cloudly_night';
@@ -31,7 +35,7 @@ export class HeaderComponent {
   private loadTheme() {
     const theme: string | null = localStorage.getItem(this.themeKey);
     if (theme === 'dark') {
-      document.body.classList.add('dark-theme');
+      this.renderer.addClass(this.bodyDocument.body, 'dark-theme');
       this.icon = 'cloudly_night';
       this.logo = 'MovtechLogoWhite';
     }
