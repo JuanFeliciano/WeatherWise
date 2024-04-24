@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICity } from 'src/app/interfaces/icity';
+import { IForecast } from 'src/app/interfaces/iforecast';
 import { WeatherService } from 'src/app/services/weather-service';
 
 @Component({
