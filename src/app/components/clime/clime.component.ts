@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IForecast } from 'src/app/interfaces/iforecast';
 import { WeatherService } from 'src/app/services/weather-service';
 
 @Component({

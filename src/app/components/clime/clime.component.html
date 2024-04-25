@@ -2,8 +2,7 @@
   <div
     class="main"
     *ngFor="
-      let atributes of weatherService.weatherData.results.forecast.slice(0, 5);
-      let i = index
+      let atributes of weatherService.weatherData.results.forecast.slice(0, 5)
     "
   >
     <p>{{ atributes.date }}</p>
