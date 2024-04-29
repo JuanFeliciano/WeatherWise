@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ICity } from 'src/app/interfaces/icity';
-import { IForecast } from 'src/app/interfaces/iforecast';
 import { IWeatherData } from 'src/app/interfaces/iweather-data';
 import { WeatherService } from 'src/app/services/weather-service';
 
@@ -23,7 +22,6 @@ export class TemperatureComponent implements OnInit {
     { name: 'Rio de Janeiro' },
     { name: 'Guaramirim' },
   ];
-
   date: Date = new Date();
   dayMonth: number = this.date.getDate();
   year: number = this.date.getFullYear();
@@ -31,21 +29,17 @@ export class TemperatureComponent implements OnInit {
 
   constructor(public weatherService: WeatherService) {}
 
-  ngOnInit() {
-    this.weatherService.city_name =
-      localStorage.getItem('selectedCity') || 'São Paulo';
-    this.fetchWeather();
-  }
-
-  fetchWeather() {
+  ngOnInit(): void {
     this.weatherService.fetchWeatherData().subscribe((data) => {
-      this.weatherData = data;
+      this.weatherData = data as IWeatherData   ;
     });
   }
 
-  changeCity() {
-    localStorage.setItem('selectedCity', this.weatherService.city_name);
-    this.fetchWeather();
+  changeCity(event: Event) {
+    const selectedCity = (event.target as HTMLSelectElement).value;
+    if (selectedCity) {
+      this.weatherService.city_name = selectedCity;
+    }
   }
 
   getMonthString() {
