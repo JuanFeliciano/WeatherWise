@@ -30,16 +30,28 @@ export class TemperatureComponent implements OnInit {
   constructor(public weatherService: WeatherService) {}
 
   ngOnInit(): void {
-    this.weatherService.fetchWeatherData().subscribe((data) => {
-      this.weatherData = data as IWeatherData   ;
+    this.weatherService.getWeatherData().subscribe((data) => {
+      if (data) {
+        this.weatherData = data;
+      } else {
+        this.fetchWeatherAndUpdate();
+      }
     });
   }
 
   changeCity(event: Event) {
     const selectedCity = (event.target as HTMLSelectElement).value;
     if (selectedCity) {
+      localStorage.setItem('selectedCity', selectedCity);
       this.weatherService.city_name = selectedCity;
+      this.fetchWeatherAndUpdate();
     }
+  }
+
+  private fetchWeatherAndUpdate() {
+    this.weatherService.fetchWeatherData().subscribe((data) => {
+      this.weatherData = data;
+    });
   }
 
   getMonthString() {

@@ -1,5 +1,3 @@
-// clime.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { IWeatherData } from 'src/app/interfaces/iweather-data';
 import { WeatherService } from 'src/app/services/weather-service';
@@ -14,9 +12,9 @@ export class ClimeComponent implements OnInit {
 
   constructor(public weatherService: WeatherService) {}
 
-  ngOnInit(): void {
-    this.weatherService.fetchWeatherData().subscribe((data) => {
-      this.weatherData = data as IWeatherData;
+  ngOnInit() {
+    this.weatherService.getWeatherData().subscribe((data) => {
+      this.weatherData = data!;
     });
   }
 }
