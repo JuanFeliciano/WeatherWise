@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Data } from '@angular/router';
 import { ICity } from 'src/app/interfaces/icity';
 import { IWeatherData } from 'src/app/interfaces/iweather-data';
 import { WeatherService } from 'src/app/services/weather-service';
@@ -39,7 +40,7 @@ export class TemperatureComponent implements OnInit {
     });
   }
 
-  changeCity(event: Event) {
+  changeCity(event: Event): void {
     const selectedCity = (event.target as HTMLSelectElement).value;
     if (selectedCity) {
       localStorage.setItem('selectedCity', selectedCity);
@@ -48,19 +49,26 @@ export class TemperatureComponent implements OnInit {
     }
   }
 
-  private fetchWeatherAndUpdate() {
+  private fetchWeatherAndUpdate(): void {
     this.weatherService.fetchWeatherData().subscribe((data) => {
       this.weatherData = data;
     });
   }
 
-  getMonthString() {
+  getMonthString(): string {
     return this.date.toLocaleString('default', { month: 'long' }).toUpperCase();
   }
 
-  getWeekString() {
+  getWeekString(): string {
     return this.date
       .toLocaleString('default', { weekday: 'long' })
       .toUpperCase();
+  }
+
+  weatherDescription(): string {
+    return this.weatherData.results.description;
+  }
+  weatherTemp(): number {
+    return this.weatherData.results.temp;
   }
 }
