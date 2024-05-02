@@ -1,7 +1,10 @@
-<div class="container" *ngIf="weatherService.weatherData">
+<div class="container" *ngIf="weatherData">
   <div class="locality">
     <div class="ls-custom-select">
-      <select [(ngModel)]="weatherService.city_name" (change)="changeCity()">
+      <select
+        [(ngModel)]="weatherService.city_name"
+        (change)="changeCity($event)"
+      >
         <option *ngFor="let city of cities" [value]="city.name">
           {{ city.name }}
         </option>
@@ -12,8 +15,8 @@
       {{ year }}
     </h4>
   </div>
-  <h2>{{ weatherService.weatherData.results.description }}</h2>
+  <h2>{{ weatherDescription() }}</h2>
   <div class="clime">
-    <h1>{{ weatherService.weatherData.results.temp }}°</h1>
+    <h1>{{ weatherTemp() }}°</h1>
   </div>
 </div>

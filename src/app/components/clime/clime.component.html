@@ -1,11 +1,5 @@
 <div class="container">
-  <div
-    class="main"
-    *ngFor="
-      let atributes of weatherService.weatherData.results.forecast.slice(0, 5);
-      let i = index
-    "
-  >
+  <div class="main" *ngFor="let atributes of sliceForecast(); let i = index">
     <p>{{ atributes.date }}</p>
     <img [src]="'./assets/' + atributes.condition + '.svg'" />
     <p>{{ atributes.max }}° / {{ atributes.min }}°</p>

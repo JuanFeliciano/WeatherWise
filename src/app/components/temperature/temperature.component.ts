@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICity } from 'src/app/interfaces/icity';
-import { IForecast } from 'src/app/interfaces/iforecast';
+import { IWeatherData } from 'src/app/interfaces/iweather-data';
 import { WeatherService } from 'src/app/services/weather-service';
 
 @Component({
@@ -22,31 +22,53 @@ export class TemperatureComponent implements OnInit {
     { name: 'Rio de Janeiro' },
     { name: 'Guaramirim' },
   ];
-
   date: Date = new Date();
   dayMonth: number = this.date.getDate();
   year: number = this.date.getFullYear();
+  weatherData!: IWeatherData;
+  nome = '';
 
   constructor(public weatherService: WeatherService) {}
 
-  ngOnInit() {
-    this.weatherService.city_name =
-      localStorage.getItem('selectedCity') || 'São Paulo';
-    this.weatherService.fetchWeatherData();
+  ngOnInit(): void {
+    this.weatherService.getWeatherData().subscribe((data) => {
+      if (data) {
+        this.weatherData = data;
+      } else {
+        this.fetchWeatherAndUpdate();
+      }
+    });
   }
 
-  changeCity() {
-    localStorage.setItem('selectedCity', this.weatherService.city_name);
-    this.weatherService.fetchWeatherData();
+  changeCity(event: Event): void {
+    const selectedCity = (event.target as HTMLSelectElement).value;
+    if (selectedCity) {
+      localStorage.setItem('selectedCity', selectedCity);
+      this.weatherService.city_name = selectedCity;
+      this.fetchWeatherAndUpdate();
+    }
   }
 
-  getMonthString() {
+  private fetchWeatherAndUpdate(): void {
+    this.weatherService.fetchWeatherData().subscribe((data) => {
+      this.weatherData = data;
+    });
+  }
+
+  getMonthString(): string {
     return this.date.toLocaleString('default', { month: 'long' }).toUpperCase();
   }
 
-  getWeekString() {
+  getWeekString(): string {
     return this.date
       .toLocaleString('default', { weekday: 'long' })
       .toUpperCase();
+  }
+
+  weatherDescription(): string {
+    return this.weatherData.results?.description;
+  }
+  weatherTemp(): number {
+    return this.weatherData.results?.temp;
   }
 }
