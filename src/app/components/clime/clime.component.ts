@@ -11,7 +11,7 @@ import { WeatherService } from 'src/app/services/weather-service';
 export class ClimeComponent implements OnInit {
   weatherData!: IWeatherData;
 
-  constructor(public weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
     this.weatherService.getWeatherData().subscribe((data) => {
@@ -19,9 +19,11 @@ export class ClimeComponent implements OnInit {
     });
   }
   sliceForecast() {
-    const forecast: IForecast[] = this.weatherData.results.forecast;
-    const forecastSlice = forecast.slice(0, 5);
+    const forecast: IForecast[] = this.weatherData?.results.forecast.slice(
+      0,
+      5
+    );
 
-    return forecastSlice;
+    return forecast;
   }
 }

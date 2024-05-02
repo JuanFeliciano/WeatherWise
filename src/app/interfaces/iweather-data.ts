@@ -26,7 +26,6 @@ export interface IWeatherData {
     city_name: string;
     timezone: string;
     forecast: IForecast[];
-    cjhukljkref: string;
   };
   execution_time: number;
   from_cache: boolean;

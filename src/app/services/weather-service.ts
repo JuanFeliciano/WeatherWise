@@ -10,7 +10,6 @@ import { IWeatherData } from '../interfaces/iweather-data';
 export class WeatherService {
   private weather$: BehaviorSubject<IWeatherData | null> =
     new BehaviorSubject<IWeatherData | null>(null);
-
   public city_name = localStorage.getItem('selectedCity') || 'São Paulo';
 
   constructor(private http: HttpClient) {}
