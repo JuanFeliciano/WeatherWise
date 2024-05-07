@@ -13,12 +13,13 @@ export class ClimeComponent implements OnInit {
 
   constructor(private weatherService: WeatherService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.weatherService.getWeatherData().subscribe((data) => {
-      this.weatherData = data!;
+      this.weatherData = data!
     });
   }
-  sliceForecast() {
+  
+  sliceForecast(): IForecast[] {
     const forecast: IForecast[] = this.weatherData?.results.forecast.slice(
       0,
       5
