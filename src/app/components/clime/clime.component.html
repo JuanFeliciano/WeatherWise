@@ -1,8 +1,8 @@
-<div class="container">
-  <div class="main" *ngFor="let atributes of sliceForecast(); let i = index">
-    <p>{{ atributes.date }}</p>
+<table class="container">
+  <tr class="main" *ngFor="let atributes of sliceForecast()">
+    <td>{{ atributes.date }}</td>
     <img [src]="'./assets/' + atributes.condition + '.svg'" />
-    <p>{{ atributes.max }}° / {{ atributes.min }}°</p>
-    <p>💧{{ atributes.rain_probability }}%</p>
-  </div>
-</div>
+    <td>{{ atributes.max }}° / {{ atributes.min }}°</td>
+    <td>💧{{ atributes.rain_probability }}%</td>
+  </tr>
+</table>

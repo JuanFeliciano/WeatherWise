@@ -26,33 +26,23 @@ export class TemperatureComponent implements OnInit {
   dayMonth: number = this.date.getDate();
   year: number = this.date.getFullYear();
   weatherData!: IWeatherData;
-  nome = '';
+  weatherCity: string = this.weatherService.city_name;
 
-  constructor(public weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.weatherService.getWeatherData().subscribe((data) => {
-      if (data) {
-        this.weatherData = data;
-      } else {
-        this.fetchWeatherAndUpdate();
-      }
+      this.weatherData = data!;
     });
   }
 
   changeCity(event: Event): void {
-    const selectedCity = (event.target as HTMLSelectElement).value;
+    const selectedCity: string = (event.target as HTMLSelectElement).value;
     if (selectedCity) {
       localStorage.setItem('selectedCity', selectedCity);
       this.weatherService.city_name = selectedCity;
-      this.fetchWeatherAndUpdate();
+      this.weatherService.fetchWeatherData().subscribe();
     }
-  }
-
-  private fetchWeatherAndUpdate(): void {
-    this.weatherService.fetchWeatherData().subscribe((data) => {
-      this.weatherData = data;
-    });
   }
 
   getMonthString(): string {
@@ -70,5 +60,11 @@ export class TemperatureComponent implements OnInit {
   }
   weatherTemp(): number {
     return this.weatherData.results?.temp;
+  }
+
+  dateTotal(): string {
+    return `${this.getWeekString()}, ${this.getMonthString()} ${
+      this.dayMonth
+    }, ${this.year}`;
   }
 }

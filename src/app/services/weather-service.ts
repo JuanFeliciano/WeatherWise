@@ -12,7 +12,9 @@ export class WeatherService {
     new BehaviorSubject<IWeatherData | null>(null);
   public city_name = localStorage.getItem('selectedCity') || 'São Paulo';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.fetchWeatherData().subscribe();
+  }
 
   getWeatherData(): Observable<IWeatherData | null> {
     return this.weather$.asObservable();

@@ -10,17 +10,12 @@ export class HeaderComponent {
   public icon: string = 'cloudly_day';
   public logo: string = 'MovtechLogo';
   private readonly themeKey: string = 'preferred-theme';
-
-  constructor(
-    private renderer: Renderer2,
-    @Inject(DOCUMENT) private bodyDocument: Document
-  ) {
-    this.loadTheme();
+  constructor(@Inject(DOCUMENT) private docElement: Document) {
+    // this.loadTheme();
   }
-
-  public toggle() {
-    const isDarkTheme = this.bodyDocument.body.classList.toggle('dark-theme');
-
+  public toggle(): void {
+    const isDarkTheme: boolean =
+      this.docElement.body.classList.toggle('dark-theme');
     if (isDarkTheme) {
       this.icon = 'cloudly_night';
       this.logo = 'MovtechLogoWhite';
@@ -31,13 +26,12 @@ export class HeaderComponent {
       localStorage.setItem(this.themeKey, 'light');
     }
   }
-
-  private loadTheme() {
-    const theme: string | null = localStorage.getItem(this.themeKey);
-    if (theme === 'dark') {
-      this.renderer.addClass(this.bodyDocument.body, 'dark-theme');
-      this.icon = 'cloudly_night';
-      this.logo = 'MovtechLogoWhite';
-    }
-  }
+  // private loadTheme(): void {
+  //   const theme: string | null = localStorage.getItem(this.themeKey);
+  //   if (theme === 'dark') {
+  //     this.docElement.body.classList.add('dark-theme');
+  //     this.icon = 'cloudly_night';
+  //     this.logo = 'MovtechLogoWhite';
+  //   }
+  // }
 }

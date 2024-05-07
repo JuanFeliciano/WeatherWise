@@ -1,18 +1,14 @@
 <div class="container" *ngIf="weatherData">
   <div class="locality">
     <div class="ls-custom-select">
-      <select
-        [(ngModel)]="weatherService.city_name"
-        (change)="changeCity($event)"
-      >
+      <select [(ngModel)]="weatherCity" (change)="changeCity($event)">
         <option *ngFor="let city of cities" [value]="city.name">
           {{ city.name }}
         </option>
       </select>
     </div>
     <h4>
-      {{ getWeekString() }}, {{ getMonthString() }} {{ dayMonth }},
-      {{ year }}
+      {{ dateTotal() }}
     </h4>
   </div>
   <h2>{{ weatherDescription() }}</h2>

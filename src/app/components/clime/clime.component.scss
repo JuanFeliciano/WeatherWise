@@ -11,14 +11,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    p {
+    td {
+      margin-top: 15px;
       font-size: 17px;
       font-weight: 600;
     }
-  }
-  hr {
-    height: 180px;
-    margin: 3px;
-    opacity: 0.4;
   }
 }
