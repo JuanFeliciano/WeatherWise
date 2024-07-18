@@ -4,7 +4,7 @@
 
 This project is a weather forecast application built with Angular 15. It fetches real-time weather data from the HG Brasil Weather API and presents it in a user-friendly interface. The application allows users to select different cities to view current weather conditions and forecasts for the next few days. Additionally, it includes a theme toggle feature for switching between light and dark modes.
 
-![Imagem de modelo](./assets/projectimage.png)
+![Imagem de modelo](src/assets/projectimage.png)
 
 ## Features
 
